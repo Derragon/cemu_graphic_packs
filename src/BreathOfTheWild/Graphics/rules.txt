@@ -12,6 +12,9 @@ $gameWidth = 1280
 $gameHeight = 720
 $aspectRatioWidth = 16
 $aspectRatioHeight = 9
+$VRResolutions = 0
+$VRHeadset = 0
+
 $showUltrawideOptions:int = 0
 $ultrawideHUDMode:int = 0
 $fxaa:int = 1
@@ -19,6 +22,7 @@ $shadowRes = 1
 $subPix:int = 1.0
 $edgeThreshold:int = 0.125
 $edgeThresholdMin:int = 0.0156
+
 
 $shadowNearbyStart = 1.0 # the starting distance should be kept at 1.0
 $shadowNearbyEnd = 1.0
@@ -28,11 +32,13 @@ $shadowFarEnd = 1.0
 # Should be set to 1 or 2 (changes verbosity of loggin) when trying to log the layout of panes while they're getting loaded for debugging purposes
 $enableUltrawideDebugLogging:int = 0
 
+
 # Aspect Ratio
 
 [Preset]
 name = 16:9 (Default)
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 16
 $aspectRatioHeight = 9
 $showUltrawideOptions:int = 0
@@ -41,6 +47,7 @@ $ultrawideHUDMode:int = 0
 [Preset]
 name = 16:10
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 16
 $aspectRatioHeight = 10
 $showUltrawideOptions:int = 0
@@ -49,6 +56,7 @@ $ultrawideHUDMode:int = 0
 [Preset]
 name = 21:9
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 21
 $aspectRatioHeight = 9
 $showUltrawideOptions:int = 1
@@ -56,6 +64,7 @@ $showUltrawideOptions:int = 1
 [Preset]
 name = 32:9
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 32
 $aspectRatioHeight = 9
 $showUltrawideOptions:int = 1
@@ -63,6 +72,7 @@ $showUltrawideOptions:int = 1
 [Preset]
 name = 32:10
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 32
 $aspectRatioHeight = 10
 $showUltrawideOptions:int = 1
@@ -70,6 +80,7 @@ $showUltrawideOptions:int = 1
 [Preset]
 name = 48:9
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 48
 $aspectRatioHeight = 9
 $showUltrawideOptions:int = 1
@@ -77,6 +88,7 @@ $showUltrawideOptions:int = 1
 [Preset]
 name = 4:3
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 4
 $aspectRatioHeight = 3
 $showUltrawideOptions:int = 0
@@ -85,6 +97,7 @@ $ultrawideHUDMode:int = 0
 [Preset]
 name = 5:4
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 5
 $aspectRatioHeight = 4
 $showUltrawideOptions:int = 0
@@ -93,6 +106,7 @@ $ultrawideHUDMode:int = 0
 [Preset]
 name = 3:2
 category = Aspect Ratio
+condition = $VRResolutions == 0
 $aspectRatioWidth = 3
 $aspectRatioHeight = 2
 $showUltrawideOptions:int = 1
@@ -102,6 +116,7 @@ $showUltrawideOptions:int = 1
 [Preset]
 name = 320x180
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 320
 $height = 180
@@ -109,6 +124,7 @@ $height = 180
 [Preset]
 name = 640x360
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 640
 $height = 360
@@ -116,6 +132,7 @@ $height = 360
 [Preset]
 name = 960x540
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 960
 $height = 540
@@ -123,12 +140,14 @@ $height = 540
 [Preset]
 name = 1280x720 (HD, Default)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 default = 1
 
 [Preset]
 name = 1600x900 (HD+)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 1600
 $height = 900
@@ -136,6 +155,7 @@ $height = 900
 [Preset]
 name = 1920x1080 (Full HD)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 1920
 $height = 1080
@@ -143,6 +163,7 @@ $height = 1080
 [Preset]
 name = 2560x1440 (2K)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 2560
 $height = 1440
@@ -150,6 +171,7 @@ $height = 1440
 [Preset]
 name = 3200x1800
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 3200
 $height = 1800
@@ -157,6 +179,7 @@ $height = 1800
 [Preset]
 name = 3840x2160 (4K)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 3840
 $height = 2160
@@ -164,6 +187,7 @@ $height = 2160
 [Preset]
 name = 5120x2880 (5K)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 5120
 $height = 2880
@@ -171,6 +195,7 @@ $height = 2880
 [Preset]
 name = 7680x4320 (8K)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 7680
 $height = 4320
@@ -178,6 +203,7 @@ $height = 4320
 [Preset]
 name = 10240x5760 (10K)
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 10240
 $height = 5760
@@ -187,6 +213,7 @@ $height = 5760
 [Preset]
 name = 1280x800
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 1280
 $height = 800
@@ -194,6 +221,7 @@ $height = 800
 [Preset]
 name = 1440x900
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 1440
 $height = 900
@@ -201,6 +229,7 @@ $height = 900
 [Preset]
 name = 1680x1050
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 1680
 $height = 1050
@@ -208,6 +237,7 @@ $height = 1050
 [Preset]
 name = 1920x1200
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 1920
 $height = 1200
@@ -215,6 +245,7 @@ $height = 1200
 [Preset]
 name = 2560x1600
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 2560
 $height = 1600
@@ -222,6 +253,7 @@ $height = 1600
 [Preset]
 name = 2880x1800
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 2880
 $height = 1800
@@ -229,6 +261,7 @@ $height = 1800
 [Preset]
 name = 3840x2400
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 3840
 $height = 2400
@@ -236,6 +269,7 @@ $height = 2400
 [Preset]
 name = 5120x3200
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 16) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 5120
 $height = 3200
@@ -245,6 +279,7 @@ $height = 3200
 [Preset]
 name = 1720x720
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 1720
 $height = 720
@@ -252,6 +287,7 @@ $height = 720
 [Preset]
 name = 2100x900
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 2100
 $height = 900
@@ -259,6 +295,7 @@ $height = 900
 [Preset]
 name = 2560x1080
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 2560
 $height = 1080
@@ -266,6 +303,7 @@ $height = 1080
 [Preset]
 name = 3440x1440
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 3440
 $height = 1440
@@ -273,6 +311,7 @@ $height = 1440
 [Preset]
 name = 3840x1600
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 3840
 $height = 1600
@@ -280,6 +319,7 @@ $height = 1600
 [Preset]
 name = 4300x1800
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 4300
 $height = 1800
@@ -287,6 +327,7 @@ $height = 1800
 [Preset]
 name = 5120x2160
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 5120
 $height = 2160
@@ -294,6 +335,7 @@ $height = 2160
 [Preset]
 name = 6880x2880
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 6880
 $height = 2880
@@ -301,6 +343,7 @@ $height = 2880
 [Preset]
 name = 10240x4320
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 21) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 10240
 $height = 4320
@@ -310,6 +353,7 @@ $height = 4320
 [Preset]
 name = 3840x1080
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 3840
 $height = 1080
@@ -317,6 +361,7 @@ $height = 1080
 [Preset]
 name = 5120x1440
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 5120
 $height = 1440
@@ -324,6 +369,7 @@ $height = 1440
 [Preset]
 name = 7680x2160
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 7680
 $height = 2160
@@ -331,6 +377,7 @@ $height = 2160
 [Preset]
 name = 10240x2880
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 10240
 $height = 2880
@@ -340,6 +387,7 @@ $height = 2880
 [Preset]
 name = 3840x1200
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 3840
 $height = 1200
@@ -347,6 +395,7 @@ $height = 1200
 [Preset]
 name = 5760x1800
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 5760
 $height = 1800
@@ -354,6 +403,7 @@ $height = 1800
 [Preset]
 name = 7680x2400
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 32) == 0) + (($aspectRatioHeight - 10) == 0)) == 2
 $width = 7680
 $height = 2400
@@ -363,6 +413,7 @@ $height = 2400
 [Preset]
 name = 5760x1080
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 48) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 5760
 $height = 1080
@@ -370,6 +421,7 @@ $height = 1080
 [Preset]
 name = 7680x1440
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 48) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 7680
 $height = 1440
@@ -377,6 +429,7 @@ $height = 1440
 [Preset]
 name = 11520x2160
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 48) == 0) + (($aspectRatioHeight - 9) == 0)) == 2
 $width = 11520
 $height = 2160
@@ -386,6 +439,7 @@ $height = 2160
 [Preset]
 name = 800x600
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 4) == 0) + (($aspectRatioHeight - 3) == 0)) == 2
 $width = 800
 $height = 600
@@ -393,6 +447,7 @@ $height = 600
 [Preset]
 name = 1024x768
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 4) == 0) + (($aspectRatioHeight - 3) == 0)) == 2
 $width = 1024
 $height = 768
@@ -400,6 +455,7 @@ $height = 768
 [Preset]
 name = 1280x960
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 4) == 0) + (($aspectRatioHeight - 3) == 0)) == 2
 $width = 1280
 $height = 960
@@ -407,6 +463,7 @@ $height = 960
 [Preset]
 name = 1600x1200
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 4) == 0) + (($aspectRatioHeight - 3) == 0)) == 2
 $width = 1600
 $height = 1200
@@ -414,6 +471,7 @@ $height = 1200
 [Preset]
 name = 1920x1440
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 4) == 0) + (($aspectRatioHeight - 3) == 0)) == 2
 $width = 1920
 $height = 1440
@@ -423,6 +481,7 @@ $height = 1440
 [Preset]
 name = 1280x1024
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 5) == 0) + (($aspectRatioHeight - 4) == 0)) == 2
 $width = 1280
 $height = 1024
@@ -430,6 +489,7 @@ $height = 1024
 [Preset]
 name = 5760x1080 (3 Full HD )
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 5) == 0) + (($aspectRatioHeight - 4) == 0)) == 2
 $width = 5760
 $height = 1080
@@ -437,6 +497,7 @@ $height = 1080
 [Preset]
 name = 8640x1620
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 5) == 0) + (($aspectRatioHeight - 4) == 0)) == 2
 $width = 8640
 $height = 1620
@@ -444,6 +505,7 @@ $height = 1620
 [Preset]
 name = 14400x2700
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 5) == 0) + (($aspectRatioHeight - 4) == 0)) == 2
 $width = 14400
 $height = 2700
@@ -453,6 +515,7 @@ $height = 2700
 [Preset]
 name = 1080x720
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 3) == 0) + (($aspectRatioHeight - 2) == 0)) == 2
 $width = 1080
 $height = 720
@@ -460,6 +523,7 @@ $height = 720
 [Preset]
 name = 1440x960
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 3) == 0) + (($aspectRatioHeight - 2) == 0)) == 2
 $width = 1440
 $height = 960
@@ -467,6 +531,7 @@ $height = 960
 [Preset]
 name = 1920x1280
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 3) == 0) + (($aspectRatioHeight - 2) == 0)) == 2
 $width = 1920
 $height = 1280
@@ -474,6 +539,7 @@ $height = 1280
 [Preset]
 name = 2256x1504
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 3) == 0) + (($aspectRatioHeight - 2) == 0)) == 2
 $width = 2256
 $height = 1504
@@ -481,11 +547,800 @@ $height = 1504
 [Preset]
 name = 3240x2160
 category = Resolution
+condition = ($VRResolutions == 0)
 condition = ((($aspectRatioWidth - 3) == 0) + (($aspectRatioHeight - 2) == 0)) == 2
 $width = 3240
 $height = 2160
 
 # Ultrawide Mode Options
+
+# VR Mode Options
+
+[Preset]
+name = Off
+category = VR Resolutions (Requires BetterVR)
+$VRResolutions = 0
+$VRHeadset = 0
+default = 1
+
+[Preset]
+name = On
+category = VR Resolutions (Requires BetterVR)
+$VRResolutions = 1
+
+# VR Graphics Options
+[Preset]
+name = Quest 2
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 1
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Quest 3
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 2
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Pimax Crystal Super
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 3
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Pimax Crystal 8kx
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 4
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = PSVR2
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 5
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Galaxy XR
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 6
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Play for Dream MR
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 7
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# VR Graphics Options
+[Preset]
+name = Valve Index
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 8
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+
+# VR Graphics Options
+[Preset]
+name = MeganeX Superlight 8k
+category = VR Headset
+condition = ($VRResolutions == 1)
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$VRHeadset = 9
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Quest 2 Resolutions (1832x1920 per eye)
+
+[Preset]
+name = 2x (7328x3840)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7328
+$height = 3840
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (6412x3360)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 6412
+$height = 3360
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (5496x2880)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5496
+$height = 2880
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (4580x2400)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 4580
+$height = 2400
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (3662x1920)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 3662
+$height = 1920
+
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (2748x1440)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 2
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 2748
+$height = 1440
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Quest 3 Resolutions (2064x2208 per eye)
+
+[Preset]
+name = 2x (8256x4416)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 8256
+$height = 4416
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (7224x3864)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7224
+$height = 3864
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (6192x3312)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 6192
+$height = 3312
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (5160x2760)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5160
+$height = 2760
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (4128x2208)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 4128
+$height = 2208
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (3096x1656)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 3
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 3096
+$height = 1656
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Pimax Crystal Super (3840x3840 per eye)
+
+[Preset]
+name = 2x (15360x7680)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 15360
+$height = 7680
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (13440x6720)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 13440
+$height = 6720
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (11520x5760)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 11520
+$height = 5760
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (9600x4800)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 9600
+$height = 4800
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (7680x3840)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7680
+$height = 3840
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (5760x2880)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 4
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5760
+$height = 2880
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+#  Pimax 8kx (3840x2160 per eye)
+
+[Preset]
+name = 2x (15360x4320)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 15360
+$height = 4320
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (13440x3780)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 13440
+$height = 3780
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (11520x3240)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 11520
+$height = 3240
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (9600x2700)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 9600
+$height = 2700
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (7680x2160)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7680
+$height = 2160
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (5760x1620)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 5
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5760
+$height = 1620
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# PSVR2 (2000x2040 per Eye)
+
+[Preset]
+name = 2x (8000x4080)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 8000
+$height = 4080
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (7000x3570)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7000
+$height = 3570
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (6000x3060)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 6000
+$height = 3060
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (5000x2550)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5000
+$height = 2550
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (4000x2040)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 4000
+$height = 2040
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (3000x1530)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 6
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 3000
+$height = 1530
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Galaxy XR Resolutions (3552x3840 per Eye)
+
+[Preset]
+name = 2x (14208x7680)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 14208
+$height = 7680
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (12432x6720)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 12342
+$height = 6720
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (10656x5760)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 10656
+$height = 5760
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (8880x4800)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 8880
+$height = 4800
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (7104x3840)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7104
+$height = 3840
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (5328x2880)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 7
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5328
+$height = 2880
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Galaxy XR Resolutions (3552x3840 per Eye)
+
+[Preset]
+name = 2x (15360x7104)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 15360
+$height = 7104
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (13440x6216)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 13440
+$height = 6216
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (11520x5328)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 11520
+$height = 5328
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (9600x4440)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 9600
+$height = 4440
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (7680x3552)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 7680
+$height = 3552
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (5760x2664)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 8
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5760
+$height = 2664
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# Valve Index Resolutions (1440x1600 per Eye)
+
+[Preset]
+name = 2x (5760x3200)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5760
+$height = 3200
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (5040x2800)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 5040
+$height = 2800
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (4320x2400)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 4320
+$height = 2400
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (3600x2000)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 3600
+$height = 2000
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (2880x1600)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 2880
+$height = 1600
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (2160x1200)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 9
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 2160
+$height = 1200
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+# MeganeX Superlight 8k Resolutions
+
+[Preset]
+name = 2x (16336x8168)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 2
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 16336
+$height = 8168
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.75x (14294x7147)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 1.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 14294
+$height = 7147
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.5x (12252x6126)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 12252
+$height = 6126
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1.25x (10210x5105)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 1.5
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 10210
+$height = 5105
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+
+[Preset]
+name = 1x (8168x4084)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 1
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 8168
+$height = 4084
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
+default = 1
+
+[Preset]
+name = 0.75x (6126x3063)
+category = VR Render Scale
+condition = ($VRResolutions + $VRHeadset) == 10
+#$VRRenderScale = 0.75
+$aspectRatioWidth = 16
+$aspectRatioHeight = 9
+$width = 6126
+$height = 3063
+$showUltrawideOptions:int = 0
+$ultrawideHUDMode:int = 0
 
 [Preset]
 name = Edge HUD (Default)
